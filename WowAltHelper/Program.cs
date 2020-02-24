@@ -145,6 +145,14 @@ namespace WowAltHelper
             foreach (var data in allInfo.OrderByDescending(o => o.Items.AverageItemLevel))
             {
                 var ilvl = (data.Items.Neck.ItemLevel - 333) / 2;
+                if(data.Items.Back.ItemLevel < 465)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
                 Console.WriteLine(data.Name + " avg ilvl: " + data.Items.AverageItemLevel + " (" + ilvl + "/70)");
 
                 foreach (var i in data.Items.GetItems())
